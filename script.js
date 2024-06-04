@@ -16,11 +16,10 @@ const barbearia = {
     ],
     estaAberto: true,
 };
-  
-  
+
 function buscaCortePorId(id) {
     corteId = {};
-    for(i=0;i<barbearia.cortes.length;i++){
+    for(let i=0; i<barbearia.cortes.length; i++){
         if(id == barbearia.cortes[i].id){
             corteId = barbearia.cortes[i];
         }
@@ -34,7 +33,7 @@ function buscaCortePorId(id) {
 
 function buscaBarbaPorId(id) {
     barbaId = {};
-    for(i=0;i<barbearia.barbas.length;i++){
+    for(let i=0; i<barbearia.barbas.length; i++){
         if(id == barbearia.barbas[i].id){
             barbaId = barbearia.barbas[i];
         }
@@ -48,9 +47,9 @@ function buscaBarbaPorId(id) {
 
 function verificaStatusBarbearia() {
     if(barbearia.estaAberto == true){
-        return "Estamos Abertos";
+        return "Estamos abertos";
     }else{
-        return "Estamos Fechados";
+        return "Estamos fechados";
     }
 }
 
@@ -63,20 +62,20 @@ function retornaTodasBarbas() {
 }
 
 function criaPedido(nomeCliente, corteId, barbaId) {
-    let corteId = buscaCortePorId();
-    let barbaId = buscaBarbaPorId();
+    let corte = buscaCortePorId(corteId);
+    let barba = buscaBarbaPorId(barbaId);
     pedido = {
         nome: nomeCliente,
-        pedidoCorte: corteId,
-        pedidoCortePreco: corteId.valor,
-        pedidoBarba: barbaId,
-        pedidoBarbaPreco: barbaId.valor,
-    }
+        pedidoCorte: corte.tipo,
+        pedidoCortePreco: corte.valor,
+        pedidoBarba: barba.tipo,
+        pedidoBarbaPreco: barba.valor,
+    };
     return pedido;
 }
 
 function atualizarServico(lista, id, valor, tipo) {
-    for(let i=0;i<lista.length;i++){
+    for(let i=0; i<lista.length; i++){
         if(id == lista[i].id){
             lista[i].tipo = tipo;
             lista[i].valor = valor;

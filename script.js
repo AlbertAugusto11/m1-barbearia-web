@@ -19,22 +19,30 @@ const barbearia = {
   
   
 function buscaCortePorId(id) {
-    for(let i=0;i<barbearia.cortes.length;i++){
-        if(barbearia.cortes[i].id == id){
-            return barbearia.cortes[i];
-        }else{
-            return "Corte não Encontrado";
+    corteId = {};
+    for(i=0;i<barbearia.cortes.length;i++){
+        if(id == barbearia.cortes[i].id){
+            corteId = barbearia.cortes[i];
         }
+    }
+    if(corteId.id == id){
+        return corteId;
+    }else{
+        return "Corte não Encontrado";
     }
 }
 
 function buscaBarbaPorId(id) {
-    for(let i=0;i<barbearia.barbas.length;i++){
-        if(barbearia.barbas[i].id == id){
-            return barbearia.barbas[i];
-        }else{
-            return "Barba não Encontrada";
+    barbaId = {};
+    for(i=0;i<barbearia.barbas.length;i++){
+        if(id == barbearia.barbas[i].id){
+            barbaId = barbearia.barbas[i];
         }
+    }
+    if(barbaId.id == id){
+        return barbaId;
+    }else{
+        return "Barba não Encontrada";
     }
 }
 
@@ -72,9 +80,9 @@ function atualizarServico(lista, id, valor, tipo) {
         if(id == lista[i].id){
             lista[i].tipo = tipo;
             lista[i].valor = valor;
-            return lista[i];
         }
     }
+    return lista;
 }
 
 function calculaTotal(pedido) {
